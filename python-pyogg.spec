@@ -27,6 +27,7 @@ Summary:	PyOgg development files
 Summary(pl):	Pliki programistyczne modu³u PyOgg
 Group:		Development/Languages/Python
 Requires:	%{name} = %{version}
+Requires:	libogg-devel
 Obsoletes:	pyogg-devel
 
 %description devel
