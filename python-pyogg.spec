@@ -1,4 +1,3 @@
-%include        /usr/lib/rpm/macros.python
 %define		module	pyogg
 Summary:	A Python module for the Ogg library
 Summary(pl):	Modu³ Pythona do biblioteki Ogg
