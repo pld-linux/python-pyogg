@@ -1,4 +1,6 @@
+
 %include        /usr/lib/rpm/macros.python
+
 %define		module pyogg
 Summary:	A Python module for the the Ogg library
 Summary(pl):	Modu³ pythona do biblioteki Ogg
@@ -17,28 +19,23 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	pyogg
 
 %description
-pyogg is a wrapper for Ogg library.
+A Python module for the the Ogg library.
 
 %description -l pl
-pyogg jest wrapperem dla biblioteki Ogg.
+Modu³ pythona do biblioteki Ogg.
 
 %package devel
-Summary:	pyogg header and example programs
+Summary:	PyOgg development files
+Summary(pl):	Pliki programistyczne modu³u PyOgg
 Group:		Development/Languages/Python
 Requires:	%{name} = %{version}
 Obsoletes:	pyogg-devel
 
 %description devel
-pyogg is a wrapper for Ogg library.
-
-Install python-pyogg-devel if you need the API documentation and
-example programs.
+PyOgg development files.
 
 %description devel -l pl
-pyogg jest wrapperem dla biblioteki Ogg.
-
-Zainstaluj tê paczkê je¶li potrzebujesz dokumentacjê API oraz
-przyk³adowe programy.
+Pliki programistyczne modu³u PyOgg.
 
 %prep
 %setup -q -n %{module}-%{version}
@@ -52,7 +49,7 @@ python setup.py build
 %install
 rm -rf $RPM_BUILD_ROOT
 
-python setup.py install --root $RPM_BUILD_ROOT
+python setup.py install --optimize=2 --root $RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -61,8 +58,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog README NEWS
 %dir %{py_sitedir}/ogg
-%{py_sitedir}/ogg/*.pyc
 %attr(755,root,root) %{py_sitedir}/ogg/*.so
+%{py_sitedir}/ogg/*.py[co]
 
 %files devel
 %defattr(644,root,root,755)
