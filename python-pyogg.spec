@@ -1,6 +1,4 @@
-
 %include        /usr/lib/rpm/macros.python
-
 %define		module pyogg
 Summary:	A Python module for the the Ogg library
 Summary(pl):	Modu³ pythona do biblioteki Ogg
@@ -11,10 +9,10 @@ License:	GPL
 Group:		Libraries/Python
 Source0:	http://www.andrewchatham.com/pyogg/download/%{module}-%{version}.tar.gz
 URL:		http://www.andrewchatham.com/pyogg/
-Requires:	python-modules
-Requires:	libogg
-BuildRequires:	python-devel
 BuildRequires:	libogg-devel
+BuildRequires:	python-devel
+BuildRequires:	rpm-pythonprov
+Requires:	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	pyogg
 
