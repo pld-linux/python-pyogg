@@ -12,7 +12,6 @@ Source0:	http://www.andrewchatham.com/pyogg/download/%{module}-%{version}.tar.gz
 URL:		http://www.andrewchatham.com/pyogg/
 BuildRequires:	libogg-devel
 BuildRequires:	python-devel
-BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.174
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
