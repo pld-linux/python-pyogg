@@ -26,6 +26,7 @@ pyogg jest wrapperem dla biblioteki Ogg.
 Summary:	pyogg header and example programs
 Group:		Development/Languages/Python
 Requires:	%{name} = %{version}
+Obsoletes:	pyogg-devel
 
 %description devel
 pyogg is a wrapper for Ogg library.
