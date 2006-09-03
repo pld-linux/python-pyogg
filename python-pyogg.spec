@@ -3,13 +3,12 @@ Summary:	A Python module for the Ogg library
 Summary(pl):	Modu³ Pythona do biblioteki Ogg
 Name:		python-%{module}
 Version:	1.3
-Release:	2
+Release:	3
 License:	GPL
 Group:		Libraries/Python
-#Source0Download: http://www.andrewchatham.com/pyogg/
-Source0:	http://www.andrewchatham.com/pyogg/download/%{module}-%{version}.tar.gz
+Source0:	http://ekyo.nerim.net/software/pyogg/%{module}-%{version}.tar.gz
 # Source0-md5:	45a4ecc4d0600661199e4040a81ea3fe
-URL:		http://www.andrewchatham.com/pyogg/
+URL:		http://ekyo.nerim.net/software/pyogg/index.html
 BuildRequires:	libogg-devel
 BuildRequires:	python-devel
 BuildRequires:	rpmbuild(macros) >= 1.174
