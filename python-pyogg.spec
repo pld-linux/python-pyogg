@@ -3,7 +3,7 @@ Summary:	A Python module for the Ogg library
 Summary(pl):	Modu³ Pythona do biblioteki Ogg
 Name:		python-%{module}
 Version:	1.3
-Release:	3
+Release:	4
 License:	GPL
 Group:		Libraries/Python
 Source0:	http://ekyo.nerim.net/software/pyogg/%{module}-%{version}.tar.gz
