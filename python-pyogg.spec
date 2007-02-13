@@ -1,6 +1,6 @@
 %define		module	pyogg
 Summary:	A Python module for the Ogg library
-Summary(pl.UTF-8):   Moduł Pythona do biblioteki Ogg
+Summary(pl.UTF-8):	Moduł Pythona do biblioteki Ogg
 Name:		python-%{module}
 Version:	1.3
 Release:	4
@@ -24,7 +24,7 @@ Moduł Pythona do biblioteki Ogg.
 
 %package devel
 Summary:	PyOgg development files
-Summary(pl.UTF-8):   Pliki programistyczne modułu PyOgg
+Summary(pl.UTF-8):	Pliki programistyczne modułu PyOgg
 Group:		Development/Languages/Python
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libogg-devel
