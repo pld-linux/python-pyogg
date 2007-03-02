@@ -24,7 +24,7 @@ Moduł Pythona do biblioteki Ogg.
 
 %package devel
 Summary:	PyOgg development files
-Summary(pl.UTF-8):	Pliki programistyczne modułu PyOgg
+Summary(pl.UTF-8):	Pliki nagłówkowe modułu PyOgg
 Group:		Development/Languages/Python
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	libogg-devel
