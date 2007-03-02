@@ -3,7 +3,7 @@ Summary:	A Python module for the Ogg library
 Summary(pl.UTF-8):	Moduł Pythona do biblioteki Ogg
 Name:		python-%{module}
 Version:	1.3
-Release:	4
+Release:	5
 License:	GPL
 Group:		Libraries/Python
 Source0:	http://ekyo.nerim.net/software/pyogg/%{module}-%{version}.tar.gz
@@ -52,6 +52,11 @@ rm -rf $RPM_BUILD_ROOT
 python setup.py install \
 	--optimize=2 \
 	--root $RPM_BUILD_ROOT
+install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+chmod a+x test/oggtail.py $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+install test/oggtail.py $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+rm -f test/testogg.py
+find $RPM_BUILD_ROOT%{py_sitedir} -type f -name "*.py" | xargs rm
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -62,8 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{py_sitedir}/ogg
 %attr(755,root,root) %{py_sitedir}/ogg/*.so
 %{py_sitedir}/ogg/*.py[co]
+%{_examplesdir}/%{name}-%{version}
 
 %files devel
 %defattr(644,root,root,755)
-%doc test/*
 %{py_incdir}/%{module}
