@@ -11,7 +11,7 @@ Source0:	http://ekyo.nerim.net/software/pyogg/%{module}-%{version}.tar.gz
 URL:		http://ekyo.nerim.net/software/pyogg/index.html
 BuildRequires:	libogg-devel
 BuildRequires:	python-devel
-BuildRequires:	rpmbuild(macros) >= 1.174
+BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	pyogg
@@ -56,7 +56,7 @@ install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 chmod a+x test/oggtail.py $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install test/oggtail.py $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 rm -f test/testogg.py
-find $RPM_BUILD_ROOT%{py_sitedir} -type f -name "*.py" | xargs rm
+%py_postclean
 
 %clean
 rm -rf $RPM_BUILD_ROOT
