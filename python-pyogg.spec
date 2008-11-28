@@ -8,7 +8,7 @@ License:	GPL
 Group:		Libraries/Python
 Source0:	http://ekyo.nerim.net/software/pyogg/%{module}-%{version}.tar.gz
 # Source0-md5:	45a4ecc4d0600661199e4040a81ea3fe
-URL:		http://ekyo.nerim.net/software/pyogg/index.html
+URL:		http://ekyo.nerim.net/software/pyogg/
 BuildRequires:	libogg-devel
 BuildRequires:	python-devel
 BuildRequires:	rpmbuild(macros) >= 1.219
