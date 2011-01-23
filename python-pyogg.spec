@@ -11,6 +11,8 @@ Source0:	http://ekyo.nerim.net/software/pyogg/%{module}-%{version}.tar.gz
 URL:		http://ekyo.nerim.net/software/pyogg/
 BuildRequires:	libogg-devel
 BuildRequires:	python-devel
+BuildRequires:	python-modules
+BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.219
 %pyrequires_eq	python-modules
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
