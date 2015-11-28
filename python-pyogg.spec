@@ -46,13 +46,12 @@ Pliki programistyczne modułu PyOgg.
 python config_unix.py \
 	--prefix %{_prefix}
 python setup.py config
-python setup.py build
+%py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-python setup.py install \
-	--optimize=2 \
+%py_install \
 	--root $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 chmod a+x test/oggtail.py $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
