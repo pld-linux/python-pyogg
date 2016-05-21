@@ -4,19 +4,20 @@ Summary(pl.UTF-8):	Moduł Pythona do biblioteki Ogg
 Name:		python-%{module}
 Version:	1.3
 Release:	10
+# debian/copyright says GPL, COPYING is LGPL?
 License:	GPL
 Group:		Libraries/Python
 Source0:	http://ekyo.nerim.net/software/pyogg/%{module}-%{version}.tar.gz
 # Source0-md5:	45a4ecc4d0600661199e4040a81ea3fe
 URL:		http://ekyo.nerim.net/software/pyogg/
 BuildRequires:	libogg-devel
-BuildRequires:	python-devel
-BuildRequires:	python-modules
+BuildRequires:	python-devel >= 2.0
+BuildRequires:	python-modules >= 2.0
 BuildRequires:	rpm-pythonprov
 BuildRequires:	rpmbuild(macros) >= 1.710
 %pyrequires_eq	python-modules
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	pyogg
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 A Python module for the the Ogg library.
@@ -43,20 +44,21 @@ Pliki programistyczne modułu PyOgg.
 %setup -q -n %{module}-%{version}
 
 %build
-python config_unix.py \
+%{__python} config_unix.py \
 	--prefix %{_prefix}
-python setup.py config
+%{__python} setup.py config
 %py_build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%py_install \
-	--root $RPM_BUILD_ROOT
+%py_install
+
 install -d $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 chmod a+x test/oggtail.py $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 install test/oggtail.py $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
-rm -f test/testogg.py
+%{__rm} test/testogg.py
+
 %py_postclean
 
 %clean
@@ -64,10 +66,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog README NEWS
+%doc AUTHORS ChangeLog NEWS README
 %dir %{py_sitedir}/ogg
-%attr(755,root,root) %{py_sitedir}/ogg/*.so
-%{py_sitedir}/ogg/*.py[co]
+%attr(755,root,root) %{py_sitedir}/ogg/_ogg.so
+%{py_sitedir}/ogg/__init__.py[co]
+%if "%{py_ver}" >= "2.5"
+%{py_sitedir}/pyogg-%{version}-py*.egg-info
+%endif
 %{_examplesdir}/%{name}-%{version}
 
 %files devel
